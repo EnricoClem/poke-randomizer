@@ -76,6 +76,30 @@ img {
 }
 
 
+/* Filters */
+
+#filters-box {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#toggle-filters-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggle-filters-btn:hover {
+    background-color: #0056b3;
+}
+
+
 /* Pokemon generator */
   
 #pokemon-block {

@@ -1,5 +1,16 @@
 document.getElementById('random-btn').addEventListener('click', fetchMultiplePokemon);
 
+// Event listener filter button
+document.getElementById('toggle-filters-btn').addEventListener('click', function() {
+    const filtersBox = document.getElementById('filters-box');
+    
+    if (filtersBox.style.display === 'none' || filtersBox.style.display === '') {
+        filtersBox.style.display = 'block';
+    } else {
+        filtersBox.style.display = 'none';
+    }
+});
+
 function fetchMultiplePokemon() {
     // Getting the n° from the index input
     const count = document.getElementById('pokemon-count').value;
@@ -113,7 +124,7 @@ function displayPokemon(pokemon) {
     if (pokemonTypes.length === 1) {
         backgroundColor = typeColors[pokemonTypes[0]];
     } else if (pokemonTypes.length === 2) {
-        backgroundColor = `linear-gradient(135deg, ${typeColors[pokemonTypes[0]]} 0%, ${typeColors[pokemonTypes[0]]} 50%, ${typeColors[pokemonTypes[1]]} 100%)`;    }
+        backgroundColor = `linear-gradient(135deg, ${typeColors[pokemonTypes[0]]} 0%, ${typeColors[pokemonTypes[0]]} 30%, ${typeColors[pokemonTypes[1]]} 100%)`;    }
     pokemonCard.style.background = backgroundColor;
   
     // HTML generated

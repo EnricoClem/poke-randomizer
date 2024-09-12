@@ -32,44 +32,49 @@
         </div>
     </section>
 
-    <!-- POKEMON GENERATOR -->
-    <!-- Quantity -->
-    <label for="pokemon-count">How many Pokémon:</label>
-    <input type="number" id="pokemon-count" min="1" max="6" value="1">
-    <!-- Types -->
-    <label>Types:</label>
-    <div id="pokemon-types">
-        <label><input type="checkbox" value="normal"> Normal</label>
-        <label><input type="checkbox" value="fire"> Fire</label>
-        <label><input type="checkbox" value="water"> Water</label>
-        <label><input type="checkbox" value="grass"> Grass</label>
-        <label><input type="checkbox" value="electric"> Electric</label>
-        <label><input type="checkbox" value="ice"> Ice</label>
-        <label><input type="checkbox" value="fighting"> Fighting</label>
-        <label><input type="checkbox" value="poison"> Poison</label>
-        <label><input type="checkbox" value="ground"> Ground</label>
-        <label><input type="checkbox" value="flying"> Flying</label>
-        <label><input type="checkbox" value="psychic"> Psychic</label>
-        <label><input type="checkbox" value="bug"> Bug</label>
-        <label><input type="checkbox" value="rock"> Rock</label>
-        <label><input type="checkbox" value="ghost"> Ghost</label>
-        <label><input type="checkbox" value="dark"> Dark</label>
-        <label><input type="checkbox" value="dragon"> Dragon</label>
-        <label><input type="checkbox" value="steel"> Steel</label>
-        <label><input type="checkbox" value="fairy"> Fairy</label>
+    <!-- FILTERS -->
+    <button id="toggle-filters-btn">Filters</button>
+    <div id="filters-box" style="display: none;">
+        <!-- Quantity -->
+        <label for="pokemon-count">How many Pokémon:</label>
+        <input type="number" id="pokemon-count" min="1" max="6" value="1">
+        <!-- Types -->
+        <label>Types:</label>
+        <div id="pokemon-types">
+            <label><input type="checkbox" value="normal"> Normal</label>
+            <label><input type="checkbox" value="fire"> Fire</label>
+            <label><input type="checkbox" value="water"> Water</label>
+            <label><input type="checkbox" value="grass"> Grass</label>
+            <label><input type="checkbox" value="electric"> Electric</label>
+            <label><input type="checkbox" value="ice"> Ice</label>
+            <label><input type="checkbox" value="fighting"> Fighting</label>
+            <label><input type="checkbox" value="poison"> Poison</label>
+            <label><input type="checkbox" value="ground"> Ground</label>
+            <label><input type="checkbox" value="flying"> Flying</label>
+            <label><input type="checkbox" value="psychic"> Psychic</label>
+            <label><input type="checkbox" value="bug"> Bug</label>
+            <label><input type="checkbox" value="rock"> Rock</label>
+            <label><input type="checkbox" value="ghost"> Ghost</label>
+            <label><input type="checkbox" value="dark"> Dark</label>
+            <label><input type="checkbox" value="dragon"> Dragon</label>
+            <label><input type="checkbox" value="steel"> Steel</label>
+            <label><input type="checkbox" value="fairy"> Fairy</label>
+        </div>
+        <!-- Generation -->
+        <label>Generation:</label>
+        <div id="pokemon-generations">
+            <label><input type="checkbox" value="1"> Generazione 1</label>
+            <label><input type="checkbox" value="2"> Generazione 2</label>
+            <label><input type="checkbox" value="3"> Generazione 3</label>
+            <label><input type="checkbox" value="4"> Generazione 4</label>
+            <label><input type="checkbox" value="5"> Generazione 5</label>
+            <label><input type="checkbox" value="6"> Generazione 6</label>
+            <label><input type="checkbox" value="7"> Generazione 7</label>
+            <label><input type="checkbox" value="8"> Generazione 8</label>
+        </div>
     </div>
-    <!-- Generation -->
-    <label>Generation:</label>
-    <div id="pokemon-generations">
-        <label><input type="checkbox" value="1"> Generazione 1</label>
-        <label><input type="checkbox" value="2"> Generazione 2</label>
-        <label><input type="checkbox" value="3"> Generazione 3</label>
-        <label><input type="checkbox" value="4"> Generazione 4</label>
-        <label><input type="checkbox" value="5"> Generazione 5</label>
-        <label><input type="checkbox" value="6"> Generazione 6</label>
-        <label><input type="checkbox" value="7"> Generazione 7</label>
-        <label><input type="checkbox" value="8"> Generazione 8</label>
-    </div>
+
+    <!-- POKEMON DATA -->
     <button id="random-btn">Genera Pokémon</button>
     <div id="pokemon-block">
     </div>
