@@ -18,66 +18,159 @@
         </div>
     </header>
 
-    <!-- INTRO SECTION -->
-    <section>
-        <div class="intro-block container">
-            <div class="intro-card">
-                <div class="intro-img">
-                    <img src="resources/poke-icon-OAK.svg" alt="">
-                </div>
-                <div class="intro-text">
-                    <p>Hello and welcome to Poké Randomizer! <br> On this site you can randomly generate one or more Pokémon and see their characteristics. <br> I hope you will enjoy here and now gotta randomiz 'em all!</p>
+    <main>
+        <!-- INTRO SECTION -->
+        <section>
+            <div class="intro-block container">
+                <div class="intro-card">
+                    <div class="intro-img">
+                        <img src="resources/poke-icon-OAK.svg" alt="">
+                    </div>
+                    <div class="intro-text">
+                        <p>Hello and welcome to Poké Randomizer! <br> On this site you can randomly generate one or more Pokémon and see their characteristics. <br> I hope you will enjoy here and now gotta randomiz 'em all!</p>
+                    </div>
                 </div>
             </div>
+        </section>
+    
+        <!-- FILTERS -->
+            <div class="container filters-block flex-col">
+                <button id="toggle-filters-btn" class="btn btn-filters">Filters</button>
+                <div id="filters-box" style="display: none;">
+                    <!-- Quantity -->
+                    <div>
+                        <label for="pokemon-count">How many Pokémon:</label>
+                        <input type="number" id="pokemon-count" min="1" max="6" value="1">
+                    </div>
+                    <!-- Types -->
+                     <div class="flex-col">
+                         <label>Types:</label>
+                         <div id="pokemon-types">
+                             <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="normal"> Normal
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="fire"> Fire
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="water"> Water
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="grass"> Grass
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="electric"> Electric
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="ice"> Ice
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="fighting"> Fighting
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="poison"> Poison
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="ground"> Ground
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="flying"> Flying
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="psychic"> Psychic
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="bug"> Bug
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="rock"> Rock
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="normal"> Normal
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="ghost"> Ghost
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="dark"> Dark
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="dragon"> Dragon
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="steel"> Steel
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="fairy"> Fairy
+                                <span class="checkmark"></span>
+                            </label>
+                         </div>
+                     </div>
+                    <!-- Generation -->
+                     <div class="flex-col">
+                         <label>Generation:</label>
+                         <div id="pokemon-generations">
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="1"> Gen 1
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="2"> Gen 2
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="3"> Gen 3
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="4"> Gen 4
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="5"> Gen 5
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="6"> Gen 6
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="7"> Gen 7
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container-checkbox">
+                                <input class="checkbox" type="checkbox" value="8"> Gen 8
+                                <span class="checkmark"></span>
+                            </label>
+                         </div>
+                     </div>
+                </div>
+            </div>
+    
+        <!-- POKEMON DATA -->
+        <button id="random-btn" class="btn btn-generate">Generate</button>
+        <div id="pokemon-block">
         </div>
-    </section>
+    </main>
 
-    <!-- FILTERS -->
-    <button id="toggle-filters-btn">Filters</button>
-    <div id="filters-box" style="display: none;">
-        <!-- Quantity -->
-        <label for="pokemon-count">How many Pokémon:</label>
-        <input type="number" id="pokemon-count" min="1" max="6" value="1">
-        <!-- Types -->
-        <label>Types:</label>
-        <div id="pokemon-types">
-            <label><input type="checkbox" value="normal"> Normal</label>
-            <label><input type="checkbox" value="fire"> Fire</label>
-            <label><input type="checkbox" value="water"> Water</label>
-            <label><input type="checkbox" value="grass"> Grass</label>
-            <label><input type="checkbox" value="electric"> Electric</label>
-            <label><input type="checkbox" value="ice"> Ice</label>
-            <label><input type="checkbox" value="fighting"> Fighting</label>
-            <label><input type="checkbox" value="poison"> Poison</label>
-            <label><input type="checkbox" value="ground"> Ground</label>
-            <label><input type="checkbox" value="flying"> Flying</label>
-            <label><input type="checkbox" value="psychic"> Psychic</label>
-            <label><input type="checkbox" value="bug"> Bug</label>
-            <label><input type="checkbox" value="rock"> Rock</label>
-            <label><input type="checkbox" value="ghost"> Ghost</label>
-            <label><input type="checkbox" value="dark"> Dark</label>
-            <label><input type="checkbox" value="dragon"> Dragon</label>
-            <label><input type="checkbox" value="steel"> Steel</label>
-            <label><input type="checkbox" value="fairy"> Fairy</label>
-        </div>
-        <!-- Generation -->
-        <label>Generation:</label>
-        <div id="pokemon-generations">
-            <label><input type="checkbox" value="1"> Generazione 1</label>
-            <label><input type="checkbox" value="2"> Generazione 2</label>
-            <label><input type="checkbox" value="3"> Generazione 3</label>
-            <label><input type="checkbox" value="4"> Generazione 4</label>
-            <label><input type="checkbox" value="5"> Generazione 5</label>
-            <label><input type="checkbox" value="6"> Generazione 6</label>
-            <label><input type="checkbox" value="7"> Generazione 7</label>
-            <label><input type="checkbox" value="8"> Generazione 8</label>
-        </div>
-    </div>
-
-    <!-- POKEMON DATA -->
-    <button id="random-btn">Genera Pokémon</button>
-    <div id="pokemon-block">
-    </div>
 
     <script src="app.js"></script>
 </body>

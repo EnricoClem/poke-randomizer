@@ -5,7 +5,7 @@ document.getElementById('toggle-filters-btn').addEventListener('click', function
     const filtersBox = document.getElementById('filters-box');
     
     if (filtersBox.style.display === 'none' || filtersBox.style.display === '') {
-        filtersBox.style.display = 'block';
+        filtersBox.style.display = 'flex';
     } else {
         filtersBox.style.display = 'none';
     }

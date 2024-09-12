@@ -1,4 +1,4 @@
-/* Reset rules */
+/* Reset rules ____________________________________ */
 
 * {
     margin: 0;
@@ -20,7 +20,7 @@ img {
 }
 
 
-/* Layout */
+/* Layout _________________________________________ */
 
 .container {
     width: 100%;
@@ -29,17 +29,35 @@ img {
     justify-content: center;
 }
 
+.btn {
+    color: white;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    width: fit-content;
+}
 
-/* Header */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Header _________________________________________ */
 
 .header-block {
-    height: 120px;
+    height: 100px;
     background-color: white;
-    padding: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .header-logo {
-    width: 400px;
+    width: 350px;
 }
 
 
@@ -57,7 +75,7 @@ img {
 .intro-img {
     width: 80px;
     border-radius: 99999px;
-    background-color: #fd7a7a;
+    background-color: #f99898;
     padding: 20px;
 }
 
@@ -65,7 +83,7 @@ img {
     width: 450px;
     background-color: white;
     border-radius: 18px;
-    padding: 20px;
+    padding: 20px 25px;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -76,31 +94,126 @@ img {
 }
 
 
-/* Filters */
+/* Filters ________________________________________ */
 
 #filters-box {
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
+    padding: 40px;
+    background-color: #0075BE;
+    color: white;
+    border: none;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    width: 800px;
 }
 
-#toggle-filters-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-filters {
+    background-color: #0075BE;
 }
 
 #toggle-filters-btn:hover {
-    background-color: #0056b3;
+    background-color: #2194dc;
+}
+
+.filters-block {
+    margin: 20px 0;
+}
+
+#pokemon-count {
+    padding: 6px 12px;
+    border-radius: 999px;
+}
+
+#pokemon-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 30px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#pokemon-generations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 30px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Checkbox personalization */
+
+.container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px;
+}
+
+.container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: solid 1px #0075BE;
+    border-radius: 6px;
+}
+
+.container-checkbox input:checked~.checkmark {
+    background-color: #0075BE;
+    border: solid 2px white;
+}
+
+.container-checkbox:has(input.checkbox:checked) {
+    background-color: white;
+    color: #0075BE;
+    padding: 0px 8px 1px 29px;
+    border-radius: 6px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+.container-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 
-/* Pokemon generator */
+/* Pokemon generator ______________________________ */
   
 #pokemon-block {
     margin: 20px auto;
@@ -130,18 +243,12 @@ img {
     max-width: 100%;
 }
   
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+.btn-generate {
+    background-color: #FB1B1B;
 }
   
-button:hover {
-    background-color: #45a049;
+.btn-generate:hover {
+    background-color: #f84b4b;
 }
 
 .shiny-btn {
@@ -158,7 +265,7 @@ button:hover {
   }
 
 
-  /* Shiny star effect */
+  /* Shiny star effect ____________________________ */
 
 .shiny-stars {
     position: absolute;
