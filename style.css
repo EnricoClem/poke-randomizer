@@ -7,7 +7,8 @@
 }
 
 ul, ol, menu {
-    list-style: none;
+    padding: 0;
+    list-style-type: none;
 }
 
 a {
@@ -15,9 +16,6 @@ a {
     text-decoration: none;
 }
 
-img {
-    max-width: 100%;
-}
 
 
 /* Layout _________________________________________ */
@@ -37,6 +35,11 @@ img {
     cursor: pointer;
     font-size: 16px;
     width: fit-content;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .flex-col {
@@ -214,19 +217,24 @@ img {
 
 
 /* Pokemon generator ______________________________ */
-  
+
 #pokemon-block {
-    margin: 20px auto;
-    width: 300px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.poke-container {
+    padding: 0 150px;
 }
 
 .pokemon-card {
+    display: flex;
+    width: calc(100% / 3 - 46px);
+    height: 250;
     padding: 15px;
-    margin: 10px;
+    margin: 8px;
     border-radius: 10px;
     color: white;
     text-align: center;
@@ -235,14 +243,28 @@ img {
 
 .pokemon-image-container {
     position: relative;
-    display: inline-block;
 }
 
-.pokemon-image-container img {
+.pokemon-img {
     display: block;
-    max-width: 100%;
+    width: 150px;
 }
-  
+
+.poke-list {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.poke-name {
+    font-size: 25px;
+}
+
+.poke-list, p h3 {
+    text-align: left;
+}
+
 .btn-generate {
     background-color: #FB1B1B;
 }
@@ -257,12 +279,23 @@ img {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
-  }
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    gap: 5px;
+}
   
-  .shiny-btn:hover {
-    opacity: 0.8;
-  }
+.shiny-btn:hover {
+    background-color: rgb(161, 21, 161);
+}
+
+.shiny-logo {
+    width: 18px;
+}
 
 
   /* Shiny star effect ____________________________ */

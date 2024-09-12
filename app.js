@@ -118,6 +118,29 @@ function displayPokemon(pokemon) {
     const pokemonCard = document.createElement('div');
     pokemonCard.classList.add('pokemon-card');
 
+    // Getting the abilities
+    const abilities = pokemon.abilities.map(abilityInfo => abilityInfo.ability.name).join(', ');
+
+    // Add decimal to values
+    function decimal(value) {
+        let stringValue = value.toString();
+        
+        if (stringValue.length === 1) {
+            return `0,${stringValue}`;
+        }
+        let integerPart = stringValue.slice(0, -1);
+        let decimalPart = stringValue.slice(-1);
+    
+        if (decimalPart === '0') {
+            return integerPart;
+        }
+    
+        return `${integerPart},${decimalPart}`;
+    }
+
+    const formattedHeight = decimal(pokemon.height);
+    const formattedWeight = decimal(pokemon.weight);
+
     // Add color to background based on type
     const pokemonTypes = pokemon.types.map(typeInfo => typeInfo.type.name);
     let backgroundColor;
@@ -129,19 +152,38 @@ function displayPokemon(pokemon) {
   
     // HTML generated
     pokemonCard.innerHTML = `
-        <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
-        <div class="pokemon-image-container">
-            <img id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+        <div class="pokemon-image-container flex-col">
+            <img class="pokemon-img" id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
             <div class="shiny-stars" id="shiny-stars-${pokemon.id}"></div>
+            <button id="shiny-btn-${pokemon.id}" class="shiny-btn" onclick="toggleShiny(${pokemon.id}, '${pokemon.sprites.front_default}', '${pokemon.sprites.front_shiny}')"><img class="shiny-logo" src="resources/poke-icon-SHINY.svg" alt=""> <span>Shiny Version</span></button>
         </div>
-        <p><strong>Tipo:</strong> ${pokemon.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
-        <p><strong>Altezza:</strong> ${pokemon.height}</p>
-        <p><strong>Peso:</strong> ${pokemon.weight}</p>
-        <button id="shiny-btn-${pokemon.id}" class="shiny-btn" onclick="toggleShiny(${pokemon.id}, '${pokemon.sprites.front_default}', '${pokemon.sprites.front_shiny}')">Shiny Version</button>
+        <div class="flex">
+            <ul class="poke-list">
+                <li>
+                    <h3 class="poke-name">${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
+                </li>
+                <li>
+                    <p><strong>Id:</strong> ${pokemon.id}</p>
+                </li>
+                <li>
+                    <p><strong>Type:</strong> ${pokemon.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
+                </li>
+                <li>
+                    <p><strong>Weight:</strong> ${formattedWeight} Kg</p>
+                </li>
+                <li>
+                    <p><strong>Height:</strong> ${formattedHeight} m</p>
+                </li>
+                <li>
+                    <p><strong>Abilities:</strong> ${abilities}</p>
+                </li>
+            </ul>
+        </div>
     `;
 
     container.appendChild(pokemonCard);
 }
+
 
 // Switch standard to shiny
 function toggleShiny(id, defaultSprite, shinySprite) {
@@ -171,7 +213,7 @@ function toggleShiny(id, defaultSprite, shinySprite) {
     } else {
         // Back to standars image
         img.src = defaultSprite;
-        shinyBtn.textContent = 'Shiny Version';
+        shinyBtn.innerHTML = '<img class="shiny-logo" src="resources/poke-icon-SHINY.svg" alt=""> <span>Shiny Version</span>';
         shinyBtn.style.backgroundColor = 'purple';
     }
 }
