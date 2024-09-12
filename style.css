@@ -74,3 +74,39 @@ img {
 .intro-text p {
     height: fit-content;
 }
+
+
+/* Pokemon generator */
+  
+#pokemon-block {
+    margin: 20px auto;
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card {
+    width: 150px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+button:hover {
+    background-color: #45a049;
+}
+  
