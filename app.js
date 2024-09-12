@@ -130,7 +130,10 @@ function displayPokemon(pokemon) {
     // HTML generated
     pokemonCard.innerHTML = `
         <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
-        <img id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+        <div class="pokemon-image-container">
+            <img id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+            <div class="shiny-stars" id="shiny-stars-${pokemon.id}"></div>
+        </div>
         <p><strong>Tipo:</strong> ${pokemon.types.map(typeInfo => typeInfo.type.name).join(', ')}</p>
         <p><strong>Altezza:</strong> ${pokemon.height}</p>
         <p><strong>Peso:</strong> ${pokemon.weight}</p>
@@ -141,17 +144,34 @@ function displayPokemon(pokemon) {
 }
 
 // Switch standard to shiny
-function toggleShiny(pokemonId, normalSprite, shinySprite) {
-    const imgElement = document.getElementById(`pokemon-img-${pokemonId}`);
-    const btnElement = document.getElementById(`shiny-btn-${pokemonId}`);
-  
-    if (imgElement.src === normalSprite) {
-      imgElement.src = shinySprite;
-      btnElement.textContent = 'Standard Version';
-      btnElement.style.backgroundColor = 'gray';
+function toggleShiny(id, defaultSprite, shinySprite) {
+    const img = document.getElementById(`pokemon-img-${id}`);
+    const shinyBtn = document.getElementById(`shiny-btn-${id}`);
+    const shinyStarsContainer = document.getElementById(`shiny-stars-${id}`);
+    
+    if (img.src === defaultSprite) {
+        img.src = shinySprite;
+        shinyBtn.textContent = 'Standard Version';
+        shinyBtn.style.backgroundColor = 'gray';
+
+        // Add stars
+        shinyStarsContainer.innerHTML = '';
+        for (let i = 0; i < 5; i++) {
+            const star = document.createElement('div');
+            star.classList.add('shiny-star');
+            star.style.setProperty('--x', Math.cos(2 * Math.PI * i / 5));
+            star.style.setProperty('--y', Math.sin(2 * Math.PI * i / 5));
+            shinyStarsContainer.appendChild(star);
+        }
+
+        // Remove stars after animation
+        setTimeout(() => {
+            shinyStarsContainer.innerHTML = '';
+        }, 1000);
     } else {
-      imgElement.src = normalSprite;
-      btnElement.textContent = 'Shiny Version';
-      btnElement.style.backgroundColor = 'purple';
+        // Back to standars image
+        img.src = defaultSprite;
+        shinyBtn.textContent = 'Shiny Version';
+        shinyBtn.style.backgroundColor = 'purple';
     }
-  }
+}

@@ -118,7 +118,17 @@ img {
     color: white;
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
+
+.pokemon-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.pokemon-image-container img {
+    display: block;
+    max-width: 100%;
+}
   
 button {
     background-color: #4CAF50;
@@ -128,7 +138,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-  }
+}
   
 button:hover {
     background-color: #45a049;
@@ -146,3 +156,38 @@ button:hover {
   .shiny-btn:hover {
     opacity: 0.8;
   }
+
+
+  /* Shiny star effect */
+
+.shiny-stars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.shiny-star {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0;
+    animation: shiny-animation 1s forwards;
+}
+
+/* Animation */
+@keyframes shiny-animation {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--x) * 50px), calc(var(--y) * 50px));
+    }
+}
