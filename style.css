@@ -1,5 +1,76 @@
+/* Reset rules */
+
 * {
     margin: 0;
     border: 0;
-    box-sizing: border-box;
+    font-family: "Jost", Helvetica, sans-serif;
+}
+
+ul, ol, menu {
+    list-style: none;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Layout */
+
+.container {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+/* Header */
+
+.header-block {
+    height: 120px;
+    background-color: white;
+    padding: 20px;
+}
+
+.header-logo {
+    width: 400px;
+}
+
+
+/* Intro */
+
+.intro-card {
+    background-color: #FB1B1B;
+    border-radius: 25px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.intro-img {
+    width: 80px;
+    border-radius: 99999px;
+    background-color: #fd7a7a;
+    padding: 20px;
+}
+
+.intro-text {
+    width: 450px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.intro-text p {
+    height: fit-content;
 }

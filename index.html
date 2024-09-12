@@ -2,15 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg" href="resources/Poke-Icon-LOGO.svg" />
+    <link rel="icon" type="image/svg" href="resources/poke-icon-LOGO.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Poke Randomizer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- HEADER WITH LOGO - no other interactions -->
     <header>
-        <img src="resources/Poke-TITLE.svg" alt="">
+        <div class="header-block container">
+            <img class="header-logo" src="resources/poke-TITLE.svg" alt="">
+        </div>
     </header>
+
+    <!-- INTRO SECTION -->
+     <section>
+        <div class="intro-clock container">
+            <div class="intro-card">
+                <div class="intro-img">
+                    <img src="resources/poke-icon-OAK.svg" alt="">
+                </div>
+                <div class="intro-text">
+                    <p>Hello and welcome to Poké Randomizer! <br> On this site you can randomly generate one or more Pokémon and see their characteristics. <br> I hope you will enjoy here and now gotta randomiz 'em all!</p>
+                </div>
+            </div>
+        </div>
+     </section>
+
     <script src="app.js"></script>
 </body>
 </html>
