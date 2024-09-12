@@ -88,13 +88,13 @@ img {
 }
 
 .pokemon-card {
-    width: 150px;
-    border: 1px solid #ddd;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
     text-align: center;
-}
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
   
 button {
     background-color: #4CAF50;
@@ -109,4 +109,16 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+.shiny-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
   
+  .shiny-btn:hover {
+    opacity: 0.8;
+  }
