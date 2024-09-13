@@ -153,16 +153,6 @@ main {
     display: flex;
 }
 
-.filter-content {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#types-box {
-    display: none;
-    left: -85px;
-}
-
 
 /* Pokemon generator ______________________________ */
 
@@ -316,4 +306,115 @@ footer {
 
 .foot-signature {
     margin-bottom: 8px;
+}
+
+
+
+
+/* Media query SMARTPHONE ____________________________________________________________ */
+
+@media screen and (max-width: 480px) {
+
+    .header-block {
+        width: auto;
+        height: 60px;
+    }
+
+    .intro-card {
+        padding: 10px;
+        gap: 10px;
+        width: 85%;
+    }
+
+    .intro-img {
+        width: 100px;
+        padding: 10px;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .intro-text {
+        width: auto;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+    
+    .btn input {
+        max-width: 70px;
+    }
+    
+    .btn-generate {
+        height: 54px;
+    }
+    
+    .btn-generate img {
+        width: 40px;
+    }
+    
+    .btn-data {
+        padding: 8px 18px;
+    }
+
+    .filters-block {
+        margin: 10px 0;
+        gap: 10px;
+    }
+
+    #pokemon-block {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .poke-container {
+        padding: 0 20px;
+    }
+    
+    .pokemon-card {
+        width: 90%;
+        padding: 15px;
+        margin: 0px;
+    }
+
+    footer {
+        background-color: #074165;
+        padding: 20px 10px;
+    }
+    
+    .col-6 {
+        padding: 0 10px;
+    }
+    
+    .foot-left h1 {
+        font-size: 18px;
+    }
+    
+    .linkedin-btn {
+        font-size: 12px;
+    }
+    
+    .foot-signature {
+        font-size: 12px;
+    }
+
+}
+
+/* Media query TABLET ____________________________________________________________ */
+
+@media screen and (max-width: 1024px) {
+
+    .pokemon-card {
+        width: calc(50% - 46px);
+    }
+
+    .poke-container {
+        padding: 0 50px;
+    }    
+
 }
