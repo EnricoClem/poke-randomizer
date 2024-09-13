@@ -21,7 +21,6 @@ a {
 /* Layout _________________________________________ */
 
 .container {
-    width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -51,6 +50,13 @@ a {
 
 body {
     background-color: rgb(244, 244, 244);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 
@@ -329,7 +335,7 @@ body {
 }
 
 
-  /* Shiny star effect ____________________________ */
+/* Shiny star effect ____________________________ */
 
 .shiny-stars {
     position: absolute;
@@ -361,4 +367,50 @@ body {
         opacity: 0;
         transform: translate(calc(var(--x) * 50px), calc(var(--y) * 50px));
     }
+}
+
+
+/* Footer _________________________________________ */
+
+footer {
+    background-color: #074165;
+    padding: 30px;
+}
+
+.footer-container {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.col-6 {
+    width: 50%;
+    padding: 0 15px;
+}
+
+.foot-left {
+    text-align: end;
+    border-right: solid white 1px;
+}
+
+.foot-left h1 {
+    font-size: 20px;
+}
+
+.foot-left p {
+    font-size: 12px;
+}
+
+.foot-left a {
+    text-decoration: underline;
+}
+
+.linkedin-btn {
+    border: solid white 1px;
+    border-radius: 10px;
+    padding: 2px 8px;
+}
+
+.foot-signature {
+    margin-bottom: 8px;
 }
