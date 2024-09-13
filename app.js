@@ -1,129 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const typesBox = document.getElementById('types-box');
-    const generationsBox = document.getElementById('generations-box');
     const randomBtn = document.getElementById('random-btn');
-    const toggleTypesBtn = document.getElementById('toggle-types-btn');
-    const toggleGenerationsBtn = document.getElementById('toggle-generations-btn');
+    const searchBtn = document.getElementById('search-btn');
     
     // Set to keep track of generated Pokémon IDs
     const generatedPokemonIds = new Set();
 
-    // Close all filters
-    function closeAllFilters() {
-        typesBox.style.display = 'none';
-        generationsBox.style.display = 'none';
-    }
-    
-    // Listener types
-    toggleTypesBtn.addEventListener('click', function() {
-        if (typesBox.style.display === 'none' || typesBox.style.display === '') {
-            closeAllFilters();  // Close the other
-            typesBox.style.display = 'block';
-        } else {
-            typesBox.style.display = 'none';
-        }
-    });
-
-    // Listener generations
-    toggleGenerationsBtn.addEventListener('click', function() {
-        if (generationsBox.style.display === 'none' || generationsBox.style.display === '') {
-            closeAllFilters();  // Close the other
-            generationsBox.style.display = 'block';
-        } else {
-            generationsBox.style.display = 'none';
-        }
-    });
-
-    // Listener generate
+    // Listener generate random pokemon
     randomBtn.addEventListener('click', function() {
-        closeAllFilters();  // Close all filters
-        generatedPokemonIds.clear();  // Clear previous Pokémon IDs
-        fetchMultiplePokemon();  // Call to generate
-    });
-    
-    // Get more than one pokemon
-    function fetchMultiplePokemon() {
-        const count = document.getElementById('pokemon-count').value;
-        const selectedTypes = Array.from(document.querySelectorAll('#pokemon-types input:checked')).map(input => input.value);
-        const selectedGenerations = Array.from(document.querySelectorAll('#pokemon-generations input:checked')).map(input => input.value);
-
-        // Clear old results
         const container = document.getElementById('pokemon-block');
         container.innerHTML = '';
-      
-        if (selectedTypes.length === 0) {
-            // If no types selected
-            for (let i = 0; i < count; i++) {
-                fetchRandomPokemon();
-            }
-        } else {
-            // Filtered by types and gen
-            generateFilteredPokemon(count, selectedTypes, selectedGenerations);
-        }
-    }
-
-    // Function to generate filtered pokemon
-    function generateFilteredPokemon(count, selectedTypes, selectedGenerations) {
-        let generatedCount = 0;
-
-        function attemptGeneration() {
-            if (generatedCount >= count) return;
-
+        generatedPokemonIds.clear();  // Clear previous Pokémon IDs
+        const count = document.getElementById('pokemon-count').value;
+        generateRandomPoke(count);
+    });
+    
+    function generateRandomPoke(count) {
+        let promises = [];
+        for(let i=0; i<count; i++) {
             const randomId = Math.floor(Math.random() * 898) + 1;
-            fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (generatedPokemonIds.has(data.id)) {
-                        attemptGeneration();  // Skip this Pokémon and generate a new one
-                        return;
-                    }
+            promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`));
+        }
+        Promise.all(promises)
+            .then(responses => Promise.all(responses.map(r => r.json())))
+            .then(results => {
+                for(let i=0; i<count; i++) {
+                    let pokemonData = results[i];
+                    generatedPokemonIds.add(pokemonData.id); 
+                    displayPokemon(pokemonData);
+                }
+            })
+            .catch(error => console.log('Errore attuale:', error))
+    }
 
-                    const pokemonTypes = data.types.map(typeInfo => typeInfo.type.name);
-                    const pokemonGeneration = getGenerationFromId(data.id);
+    // Listener search pokemon
+    searchBtn.addEventListener('click', function() {
+        const container = document.getElementById('pokemon-block');
+        container.innerHTML = '';
+        generatedPokemonIds.clear();  // Clear previous Pokémon IDs
+        const idOrName = document.getElementById('pokemon-search').value;
+        searchPoke(idOrName);
+    });
 
-                    const hasSelectedType = pokemonTypes.some(type => selectedTypes.includes(type));
-                    const hasSelectedGeneration = selectedGenerations.length === 0 || selectedGenerations.includes(pokemonGeneration.toString());
-
-                    if (hasSelectedType && hasSelectedGeneration) {
-                        displayPokemon(data);
-                        generatedPokemonIds.add(data.id);  // Add the ID to the set
-                        generatedCount++;
-                    }
-
-                    attemptGeneration();  // Keep generating until the selected number
-                })
-                .catch(error => console.log('Errore attuale:', error));
+    function searchPoke(idOrName) {
+        idOrName = idOrName.trim();
+/*
+        switch(typeof idOrName) {
+            case 'string':
+                idOrName = idOrName.toLowerCase();
+                break;
+            case 'number':
+                // 
+                break;
+            default:
+                // error
+                // mostra un messaggio d'errore per ricordare all'utente 
+                // che deve inserire solo il nome o l'id numerico
+        }
+*/
+        if (typeof idOrName == 'string') {
+            idOrName = idOrName.toLowerCase();
         }
 
-        attemptGeneration();
-    }
-
-    // Determintating generation based on ID
-    function getGenerationFromId(id) {
-        if (id <= 151) return 1;
-        if (id <= 251) return 2;
-        if (id <= 386) return 3;
-        if (id <= 493) return 4;
-        if (id <= 649) return 5;
-        if (id <= 721) return 6;
-        if (id <= 809) return 7;
-        return 8;
-    }
-
-    // Get a random pokemon
-    function fetchRandomPokemon() {
-        const randomId = Math.floor(Math.random() * 898) + 1;
-        fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${idOrName}`)
             .then(response => response.json())
-            .then(data => {
-                if (generatedPokemonIds.has(data.id)) {
-                    fetchRandomPokemon();  // Skip this Pokémon and fetch another
-                    return;
-                }
-                displayPokemon(data);
-                generatedPokemonIds.add(data.id);  // Add the ID to the set
+            .then(pokemonData => {
+                generatedPokemonIds.add(pokemonData.id); 
+                displayPokemon(pokemonData);
             })
-            .catch(error => console.log('Errore attuale:', error));
+            .catch(error => console.log('Errore attuale:', error))
+
     }
 
     // Visualize the pokemon
@@ -149,11 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (pokemonTypes.length === 1) {
             backgroundColor = typeColors[pokemonTypes[0]];
-        } else if (pokemonTypes.length === 2) {
-            backgroundColor = `linear-gradient(135deg, ${typeColors[pokemonTypes[0]]} 0%, ${typeColors[pokemonTypes[0]]} 30%, ${typeColors[pokemonTypes[1]]} 100%)`;
         } else {
-            // Default background color if more than 2 types
-            backgroundColor = '#ffffff'; // or any other default color
+            backgroundColor = `linear-gradient(135deg, ${typeColors[pokemonTypes[0]]} 0%, ${typeColors[pokemonTypes[0]]} 30%, ${typeColors[pokemonTypes[1]]} 100%)`;
         }
 
         pokemonCard.style.background = backgroundColor;

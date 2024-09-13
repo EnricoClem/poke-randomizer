@@ -27,13 +27,45 @@ a {
 }
 
 .btn {
-    color: white;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
     font-size: 16px;
     width: fit-content;
+}
+
+.btn input {
+    padding: 6px 12px 6px 16px;
+    border-radius: 999px;
+    border: #0075BE solid 1px;
+}
+
+.btn-generate {
+    cursor: pointer;
+    background-color: #0075BE;
+    height: 62px;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+  
+.btn-generate:hover {
+    background-color: #1390dd;
+}
+
+.btn-generate img {
+    width: 45px;
+    padding: 5px 12px 0px 5px;
+}
+
+.btn-data {
+    padding: 12px 20px;
+    color: #074165;
+    background-color: white;
+    border: #0075BE solid 2px;
+    border-right: none;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+}
+
+.btn-filters {
+    display: flex;
 }
 
 .flex {
@@ -76,7 +108,7 @@ main {
 /* Intro */
 
 .intro-card {
-    background-color: #FB1B1B;
+    background-color: #0075BE;
     border-radius: 25px;
     padding: 20px;
     display: flex;
@@ -88,7 +120,7 @@ main {
 .intro-img {
     width: 80px;
     border-radius: 99999px;
-    background-color: #f99898;
+    background-color: #37a8ee;
     padding: 20px;
 }
 
@@ -131,137 +163,8 @@ main {
     left: -85px;
 }
 
-#generations-box {
-    display: none;
-    left: -64px;
-}
-
-#types-box.show, #generations-box.show {
-    display: block;
-}
-
-.btn-filters {
-    background-color: #0075BE;
-    position: relative;
-    display: inline-block;
-}
-
-.filter-box {
-    top: 65px;
-    position: absolute;
-    background-color: #0075BE;
-    color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    width: 200px;
-    display: none;
-}
-
-.filter-box.active {
-    display: block;
-}
-
-#toggle-types-btn:hover {
-    background-color: #219ae6;
-}
-
-#toggle-generations-btn:hover {
-    background-color: #219ae6;
-}
-
-#pokemon-count {
-    padding: 6px 12px;
-    border-radius: 999px;
-}
-
-#pokemon-types,
-#pokemon-generations {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-/* Checkbox personalization */
-
-.container-checkbox {
-    display: block;
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-size: 16px;
-}
-
-.container-checkbox input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border: solid 1px #0075BE;
-    border-radius: 6px;
-}
-
-.container-checkbox input:checked~.checkmark {
-    background-color: #0075BE;
-    border: solid 2px white;
-}
-
-.container-checkbox:has(input.checkbox:checked) {
-    background-color: white;
-    color: #0075BE;
-    padding: 0px 8px 1px 29px;
-    border-radius: 6px;
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.container-checkbox input:checked~.checkmark:after {
-    display: block;
-}
-
-.container-checkbox .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
 
 /* Pokemon generator ______________________________ */
-
-.btn-generate {
-    background-color: #FB1B1B;
-}
-  
-.btn-generate:hover {
-    background-color: #ff4848;
-}
 
 #pokemon-block {
     display: flex;

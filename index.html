@@ -33,152 +33,38 @@
             </div>
         </section>
     
-        <!-- FILTERS -->
+        <!-- INPUTS -->
         <div class="container filters-block">
-
-            <!-- Quantity -->
-            <div class="btn btn-filters">
-                <label for="pokemon-count">How many Pokémon:</label>
-                <input type="number" id="pokemon-count" min="1" max="6" value="1">
-            </div>
-
-            <!-- Types Button -->
-             <div class="filter-container">
-                 <button id="toggle-types-btn" class="btn btn-filters">Types</button>
-                 <div id="types-box" class="filter-box" style="display: none;">
-                     <div class="flex-col">
-                         <div id="pokemon-types" class="filter-content">
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="normal"> Normal
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="fire"> Fire
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="water"> Water
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="grass"> Grass
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="electric"> Electric
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="ice"> Ice
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="fighting"> Fighting
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="poison"> Poison
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="ground"> Ground
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="flying"> Flying
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="psychic"> Psychic
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="bug"> Bug
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="rock"> Rock
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="ghost"> Ghost
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="dark"> Dark
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="dragon"> Dragon
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="steel"> Steel
-                                 <span class="checkmark"></span>
-                             </label>
-                             <label class="container-checkbox">
-                                 <input class="checkbox" type="checkbox" value="fairy"> Fairy
-                                 <span class="checkmark"></span>
-                             </label>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-        
-            <!-- Generations Button -->
-            <div class="filter-container">
-                <button id="toggle-generations-btn" class="btn btn-filters">Generations</button>
-                <div id="generations-box" class="filter-box" style="display: none;">
-                    <div class="flex-col">
-                        <div id="pokemon-generations" class="filter-content">
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="1"> Gen 1
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="2"> Gen 2
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="3"> Gen 3
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="4"> Gen 4
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="5"> Gen 5
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="6"> Gen 6
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="7"> Gen 7
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container-checkbox">
-                                <input class="checkbox" type="checkbox" value="8"> Gen 8
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
+            <!-- Quantity and random -->
+            <div class="btn-filters">
+                <div class="btn btn-data">
+                    <label for="pokemon-count">How many Pokémon:</label>
+                    <input type="number" id="pokemon-count" min="1" max="6" value="1">
                 </div>
+                <button id="random-btn" class="btn btn-generate">
+                    <img src="resources/poke-icon-RANDOM.svg" alt="">
+                </button>
+            </div>
+             <!-- Search -->
+            <div class="btn-filters">
+                <div class="btn btn-data">
+                    <label for="pokemon-search">Search a Pokémon by name or numeric ID:</label>
+                    <input type="text" id="pokemon-search" placeholder="Pikachu">
+                </div>
+                <button id="search-btn" class="btn btn-generate">
+                    <img src="resources/poke-icon-SEARCH.svg" alt="">
+                </button>
             </div>
         </div>
 
         <!-- POKEMON DATA -->
         <section>
-            <div class="container">
-                <button id="random-btn" class="btn btn-generate">Generate</button>
-            </div>
             <div id="pokemon-block" class="poke-container">
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-container">
             <div class="col-6 foot-left">
