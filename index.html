@@ -14,7 +14,7 @@
     <!-- HEADER WITH LOGO - no other interactions -->
     <header>
         <div class="header-block container">
-            <img class="header-logo" src="resources/poke-TITLE.svg" alt="">
+            <img aria-label="Poke Randomizer title image in the iconic Pokemon series style" class="header-logo" src="resources/poke-TITLE.svg" alt="">
         </div>
     </header>
 
@@ -24,10 +24,10 @@
             <div class="intro-block container">
                 <div class="intro-card">
                     <div class="intro-img">
-                        <img src="resources/poke-icon-OAK.svg" alt="">
+                        <img aria-label="Pixel art icon of Pokemon expert Prof Oak" src="resources/poke-icon-OAK.svg" alt="">
                     </div>
                     <div class="intro-text">
-                        <p>Hello and welcome to Poké Randomizer! <br> On this site you can randomly generate one or more Pokémon and see their characteristics. <br> I hope you will enjoy here and now gotta randomiz 'em all!</p>
+                        <p aria-label="Site introduction text">Hello and welcome to Poké Randomizer! <br> On this site you can randomly generate one or more Pokémon and see their characteristics. <br> I hope you will enjoy here and now gotta randomiz 'em all!</p>
                     </div>
                 </div>
             </div>
@@ -38,21 +38,21 @@
             <!-- Quantity and random -->
             <div class="btn-filters">
                 <div class="btn btn-data">
-                    <label for="pokemon-count">How many Pokémon:</label>
-                    <input type="number" id="pokemon-count" min="1" max="6" value="1">
+                    <label id="random-label" for="pokemon-count">How many Pokémon:</label>
+                    <input aria-labelledby="random-label" aria-label="Select how many" type="number" id="pokemon-count" min="1" max="6" value="1">
                 </div>
-                <button id="random-btn" class="btn btn-generate">
-                    <img src="resources/poke-icon-RANDOM.svg" alt="">
+                <button aria-labelledby="random-label" aria-label="Randomize" id="random-btn" class="btn btn-generate">
+                    <img aria-label="Randomize button icon" src="resources/poke-icon-RANDOM.svg" alt="">
                 </button>
             </div>
              <!-- Search -->
             <div class="btn-filters">
                 <div class="btn btn-data">
-                    <label for="pokemon-search">Search by name or ID:</label>
-                    <input type="text" id="pokemon-search" placeholder="Pikachu">
+                    <label id="search-label" for="pokemon-search">Search by name or ID:</label>
+                    <input aria-labelledby="search-label" aria-label="Search bar for pokemon name or numeric ID" type="text" id="pokemon-search" placeholder="Pikachu">
                 </div>
-                <button id="search-btn" class="btn btn-generate">
-                    <img src="resources/poke-icon-SEARCH.svg" alt="">
+                <button aria-labelledby="search-label" aria-label="Search" id="search-btn" class="btn btn-generate">
+                    <img aria-label="Search button icon" src="resources/poke-icon-SEARCH.svg" alt="">
                 </button>
             </div>
         </div>
@@ -68,12 +68,12 @@
     <footer>
         <div class="container footer-container">
             <div class="col-6 foot-left">
-                <h1>Poke Randomizer</h1>
-                <p>This site was created using <br> the free API provided by the site <a href="https://pokeapi.co/">PokeAPI</a></p>
+                <h1 aria-label="Website title">Poke Randomizer</h1>
+                <p aria-label="Credit text for APIs used">This site was created using <br> the free API provided by the site <a href="https://pokeapi.co/">PokeAPI</a></p>
             </div>
             <div class="col-6">
                 <p class="foot-signature">Created by <strong>Enrico Clementi</strong></p>
-                <a class="linkedin-btn" href="https://www.linkedin.com/in/enrico-clementi/">Enrico Clementi on Linkedin</a>
+                <a aria-label="Link to Linkedin profile" class="linkedin-btn" href="https://www.linkedin.com/in/enrico-clementi/">Enrico Clementi on Linkedin</a>
             </div>
         </div>
     </footer>

@@ -103,10 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // HTML generated
         pokemonCard.innerHTML = `
             <div class="pokemon-image-container flex-col">
-                <img class="pokemon-img" id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <img aria-label="Pokemon image" class="pokemon-img" id="pokemon-img-${pokemon.id}" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
                 <div class="shiny-stars" id="shiny-stars-${pokemon.id}"></div>
-                <button id="shiny-btn-${pokemon.id}" class="shiny-btn" onclick="toggleShiny(${pokemon.id}, '${pokemon.sprites.front_default}', '${pokemon.sprites.front_shiny}')">
-                    <img class="shiny-logo" src="resources/poke-icon-SHINY.svg" alt=""> <span>Shiny Version</span>
+                <button aria-label="Button to switch from standard image to shiny" id="shiny-btn-${pokemon.id}" class="shiny-btn" onclick="toggleShiny(${pokemon.id}, '${pokemon.sprites.front_default}', '${pokemon.sprites.front_shiny}')">
+                    <img aria-label="Shiny button icon" class="shiny-logo" src="resources/poke-icon-SHINY.svg" alt=""> <span>Shiny Version</span>
                 </button>
             </div>
             <div class="flex">
