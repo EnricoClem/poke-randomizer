@@ -49,6 +49,10 @@ a {
     justify-content: center;
 }
 
+body {
+    background-color: rgb(244, 244, 244);
+}
+
 
 /* Header _________________________________________ */
 
@@ -56,7 +60,6 @@ a {
     height: 100px;
     background-color: white;
     padding: 10px;
-    margin-bottom: 10px;
 }
 
 .header-logo {
@@ -73,6 +76,7 @@ a {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .intro-img {
@@ -99,30 +103,66 @@ a {
 
 /* Filters ________________________________________ */
 
-#filters-box {
-    padding: 40px;
-    background-color: #0075BE;
-    color: white;
-    border: none;
-    margin-top: 10px;
-    border-radius: 15px;
-    flex-direction: column;
-    align-items: center;
+.filters-block {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    font-size: 20px;
-    width: 800px;
+}
+
+.filter-container {
+    position: relative;
+    display: flex;
+}
+
+.filter-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#types-box {
+    display: none;
+    left: -85px;
+}
+
+#generations-box {
+    display: none;
+    left: -64px;
+}
+
+#types-box.show, #generations-box.show {
+    display: block;
 }
 
 .btn-filters {
     background-color: #0075BE;
+    position: relative;
+    display: inline-block;
 }
 
-#toggle-filters-btn:hover {
-    background-color: #2194dc;
+.filter-box {
+    top: 65px;
+    position: absolute;
+    background-color: #0075BE;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    width: 200px;
+    display: none;
 }
 
-.filters-block {
-    margin: 20px 0;
+.filter-box.active {
+    display: block;
+}
+
+#toggle-types-btn:hover {
+    background-color: #219ae6;
+}
+
+#toggle-generations-btn:hover {
+    background-color: #219ae6;
 }
 
 #pokemon-count {
@@ -130,20 +170,11 @@ a {
     border-radius: 999px;
 }
 
-#pokemon-types {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 0 30px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
+#pokemon-types,
 #pokemon-generations {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 0 30px;
     justify-content: center;
     margin-top: 10px;
 }
@@ -218,11 +249,19 @@ a {
 
 /* Pokemon generator ______________________________ */
 
+.btn-generate {
+    background-color: #FB1B1B;
+}
+  
+.btn-generate:hover {
+    background-color: #ff4848;
+}
+
 #pokemon-block {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .poke-container {
@@ -263,14 +302,6 @@ a {
 
 .poke-list, p h3 {
     text-align: left;
-}
-
-.btn-generate {
-    background-color: #FB1B1B;
-}
-  
-.btn-generate:hover {
-    background-color: #f84b4b;
 }
 
 .shiny-btn {
