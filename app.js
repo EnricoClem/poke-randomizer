@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleTypesBtn = document.getElementById('toggle-types-btn');
     const toggleGenerationsBtn = document.getElementById('toggle-generations-btn');
     
+    // Set to keep track of generated Pokémon IDs
+    const generatedPokemonIds = new Set();
+
     // Close all filters
     function closeAllFilters() {
         typesBox.style.display = 'none';
@@ -34,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Listener generate
     randomBtn.addEventListener('click', function() {
         closeAllFilters();  // Close all filters
+        generatedPokemonIds.clear();  // Clear previous Pokémon IDs
         fetchMultiplePokemon();  // Call to generate
     });
     
@@ -69,18 +73,24 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
                 .then(response => response.json())
                 .then(data => {
+                    if (generatedPokemonIds.has(data.id)) {
+                        attemptGeneration();  // Skip this Pokémon and generate a new one
+                        return;
+                    }
+
                     const pokemonTypes = data.types.map(typeInfo => typeInfo.type.name);
-                    const pokemonGeneration = getGenerationFromId(randomId);
+                    const pokemonGeneration = getGenerationFromId(data.id);
 
                     const hasSelectedType = pokemonTypes.some(type => selectedTypes.includes(type));
                     const hasSelectedGeneration = selectedGenerations.length === 0 || selectedGenerations.includes(pokemonGeneration.toString());
 
                     if (hasSelectedType && hasSelectedGeneration) {
                         displayPokemon(data);
+                        generatedPokemonIds.add(data.id);  // Add the ID to the set
                         generatedCount++;
                     }
 
-                    attemptGeneration();  // Keep generating untill the selected number
+                    attemptGeneration();  // Keep generating until the selected number
                 })
                 .catch(error => console.log('Errore attuale:', error));
         }
@@ -105,7 +115,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomId = Math.floor(Math.random() * 898) + 1;
         fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
             .then(response => response.json())
-            .then(data => displayPokemon(data))
+            .then(data => {
+                if (generatedPokemonIds.has(data.id)) {
+                    fetchRandomPokemon();  // Skip this Pokémon and fetch another
+                    return;
+                }
+                displayPokemon(data);
+                generatedPokemonIds.add(data.id);  // Add the ID to the set
+            })
             .catch(error => console.log('Errore attuale:', error));
     }
 
